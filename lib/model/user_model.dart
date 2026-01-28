@@ -1,40 +1,37 @@
 class UserModel {
-  int? userId;
-  String? username;
+  String? userId;
+  String? name;
   String? email;
-  String? password;
   String? profileImage;
-  int? isLoggedIn;
-  int? doNotShowAgain;
+  int? currentIndex;
+  String? currentSentence;
 
   UserModel(
       {this.userId,
-      required this.username,
-      required this.email,
-      required this.password,
-      this.profileImage,
-      this.isLoggedIn = 0,
-      this.doNotShowAgain = 0});
+       this.name,
+       this.email,
+       this.profileImage,
+       this.currentIndex,
+       this.currentSentence
+      });
 
   UserModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
-    username = json['username'];
-    password = json['password'];
+    name = json['name'];
     email = json['email'];
     profileImage = json['profileImage'];
-    isLoggedIn = json['isLoggedIn'];
-    doNotShowAgain = json['doNotShowAgain'];
+    currentIndex = json['currentIndex'];
+    currentSentence = json['currentSentence'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['userId'] = userId;
-    data['username'] = username;
-    data['password'] = password;
-    data['email'] =  email;
-    data['profileImage'] = profileImage ?? username![0];
-    data['isLoggedIn'] = isLoggedIn;
-    data['doNotShowAgain'] = doNotShowAgain;
+    data['name'] = name;
+    data['email'] = email;
+    data['profileImage'] = profileImage ?? name![0];
+    data['currentIndex'] = currentIndex;
+    data['currentSentence'] = currentSentence;
     return data;
   }
 }
